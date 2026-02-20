@@ -1,0 +1,23 @@
+.formContainer {
+  width: 255px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.formInput {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.formLabel {
+  font-weight: bold;
+  margin: 0;
+}
+
+.formError {
+  color: red;
+  font-size: 14px;
+  margin: 0;
+}

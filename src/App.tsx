@@ -12,6 +12,7 @@ import {
   setDevicesError,
 } from './store';
 import { DevicesTable } from './DevicesTable';
+import { OperationsModal } from './OperationsModal';
 
 const App = () => {
   const loading = useUnit($devicesLoading);
@@ -61,6 +62,7 @@ const App = () => {
           </Container>
         )}
       </Stack>
+      <OperationsModal />
     </div>
   );
 };
