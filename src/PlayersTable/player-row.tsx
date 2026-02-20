@@ -1,16 +1,19 @@
 import { Button } from 'react-bootstrap';
-import { validateBalance } from './helpers.ts';
 
-interface Props {
-  name: string;
-  balance: number;
+interface PlayerData {
+  place: number;
+  balances: number;
 }
 
-const PlayerRow = ({ name, balance }: Props) => {
+interface Props<V extends PlayerData> {
+  data: V;
+}
+
+const PlayerRow = <V extends PlayerData>({ data: { place, balances } }: Props<V>) => {
   return (
     <tr>
-      <td>{name}</td>
-      <td>{validateBalance(balance)}</td>
+      <td>User {place}</td>
+      <td>{balances}</td>
       <td>
         <Button size="sm">Deposit</Button>
       </td>
