@@ -1,7 +1,7 @@
-import { formatMonthYear } from '../helpers';
 import { useUnit } from 'effector-react/compat';
 import { setPlayerByDeviceId } from '../store';
 import styles from './devices-table.module.css';
+import { formatMonthYear } from '../shared';
 
 interface DeviceData {
   id: number;
@@ -24,7 +24,7 @@ const DeviceRow = <V extends DeviceData>({
   };
 
   return (
-    <tr onClick={handleClick} className={styles.row}>
+    <tr onClick={handleClick} className={styles.clickableRow}>
       <td>{name}</td>
       <td>{formatMonthYear(created_at)}</td>
       <td>{formatMonthYear(updated_at)}</td>

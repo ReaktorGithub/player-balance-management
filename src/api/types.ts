@@ -1,3 +1,5 @@
+// Типы данных с сервера
+
 export interface DevicePlace {
   balances: number;
   currency: string;

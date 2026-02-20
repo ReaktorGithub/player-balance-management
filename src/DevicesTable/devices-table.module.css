@@ -14,6 +14,6 @@
   min-width: 150px;
 }
 
-.row {
+.clickableRow {
   cursor: pointer;
 }

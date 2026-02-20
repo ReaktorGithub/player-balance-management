@@ -3,10 +3,8 @@ import { useUnit } from 'effector-react';
 import { $selectedPlace, setModalMode, setPlayerByDeviceId, updateDevice } from '../store';
 import styles from './operations-modal.module.css';
 import { useState } from 'react';
-import { convertUsdToKes } from './helpers.ts';
 import { devicesApi } from '../api';
-import { AMOUNT_REGEX, AMOUNT_SUBMIT_REGEX } from '../constants.ts';
-import type { ModalMode } from '../types.ts';
+import { AMOUNT_REGEX, AMOUNT_SUBMIT_REGEX, convertUsdToKes, type ModalMode } from '../shared';
 
 interface Props {
   modalMode: ModalMode;
@@ -65,6 +63,7 @@ const OperationsModalContent = ({ modalMode }: Props) => {
       const kes = convertUsdToKes(amount);
       const { device_id, place, balances } = selectedPlace;
 
+      // Недостаточно денег
       if (modalMode === 'withdraw' && balances < kes) {
         setError('Not enough money on the balance');
         return;

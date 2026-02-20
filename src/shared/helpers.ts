@@ -1,3 +1,5 @@
+import { KES_RATE } from './constants.ts';
+
 const months = [
   'January',
   'February',
@@ -20,4 +22,12 @@ export const formatMonthYear = (dateString: string): string => {
   const year = date.getUTCFullYear();
 
   return `${day} ${month} ${year}`;
+};
+
+export const convertUsdToKes = (value: string): number => {
+  const parsed = parseFloat(value);
+  if (Number.isNaN(parsed)) {
+    throw new Error(`Unexpected value for ${parsed.toString()}`);
+  }
+  return parsed * KES_RATE;
 };
