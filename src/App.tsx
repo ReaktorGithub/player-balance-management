@@ -25,7 +25,6 @@ const App = () => {
       try {
         const data = await devicesApi.getDevices();
         setDevices(data);
-        console.log(data);
       } catch (err) {
         setDevicesError(err instanceof Error ? err.message : 'Failed to fetch devices');
         console.error('Error fetching devices:', err);

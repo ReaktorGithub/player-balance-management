@@ -13,3 +13,8 @@
   width: 150px;
   min-width: 150px;
 }
+
+.emptyText {
+  text-align: center;
+  color: grey;
+}

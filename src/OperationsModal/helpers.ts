@@ -1,7 +1,9 @@
-const KES_RATE = 129;
+import { KES_RATE } from '../constants.ts';
 
-export const convertUsdToKes = (value: string): bigint => {
-  const [intPart, fracPart = ''] = value.split('.');
-  const cents = BigInt(intPart) * 100n + BigInt((fracPart + '00').slice(0, 2));
-  return cents * BigInt(KES_RATE);
+export const convertUsdToKes = (value: string): number => {
+  const parsed = parseFloat(value);
+  if (Number.isNaN(parsed)) {
+    throw new Error(`Unexpected value for ${parsed.toString()}`);
+  }
+  return parsed * KES_RATE;
 };

@@ -1,27 +1,24 @@
 import { Button } from 'react-bootstrap';
 import { useUnit } from 'effector-react';
 import { setModalMode, setSelectedPlace } from '../store';
+import type { DevicePlace } from '../api';
 
-interface PlayerData {
-  place: number;
-  balances: number;
+interface Props {
+  data: DevicePlace;
 }
 
-interface Props<V extends PlayerData> {
-  data: V;
-}
-
-const PlayerRow = <V extends PlayerData>({ data: { place, balances } }: Props<V>) => {
+const PlayerRow = ({ data }: Props) => {
   const [onSetModalMode, onSetSelectedPlace] = useUnit([setModalMode, setSelectedPlace]);
+  const { place, balances } = data;
 
   const handleDeposit = () => {
     onSetModalMode('deposit');
-    onSetSelectedPlace(place);
+    onSetSelectedPlace(data);
   };
 
   const handleWithdraw = () => {
     onSetModalMode('withdraw');
-    onSetSelectedPlace(place);
+    onSetSelectedPlace(data);
   };
 
   return (

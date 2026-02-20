@@ -7,16 +7,17 @@ export const devicesApi = {
     return response.data;
   },
 
-  getDevice: async (deviceId: string): Promise<Device> => {
+  getDevice: async (deviceId: number): Promise<Device> => {
     const response = await apiClient.get<Device>(`/a/devices/${deviceId}/`);
     return response.data;
   },
 
-  updateBalances: async (
-    deviceId: string,
-    placeId: number,
-    request: ModBalanceRequest,
-  ): Promise<DevicePlace> => {
+  updateBalances: async (options: {
+    deviceId: number;
+    placeId: number;
+    request: ModBalanceRequest;
+  }): Promise<DevicePlace> => {
+    const { deviceId, placeId, request } = options;
     const response = await apiClient.post<DevicePlace>(
       `/a/devices/${deviceId}/place/${placeId}/update`,
       request,
