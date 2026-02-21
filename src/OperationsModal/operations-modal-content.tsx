@@ -4,7 +4,13 @@ import { $selectedPlace, setModalMode, setPlayerByDeviceId, updateDevice } from 
 import styles from './operations-modal.module.css';
 import { useState } from 'react';
 import { devicesApi } from '../api';
-import { AMOUNT_REGEX, AMOUNT_SUBMIT_REGEX, convertUsdToKes, type ModalMode } from '../shared';
+import {
+  AMOUNT_REGEX,
+  AMOUNT_SUBMIT_REGEX,
+  convertUsdToKes,
+  type ModalMode,
+  useAppSnackbar,
+} from '../shared';
 
 interface Props {
   modalMode: ModalMode;
@@ -21,6 +27,8 @@ const OperationsModalContent = ({ modalMode }: Props) => {
   const [amount, setAmount] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [pending, setPending] = useState<boolean>(false);
+
+  const { showSuccess, showError } = useAppSnackbar();
 
   const handleClose = () => {
     if (!pending) {
@@ -85,9 +93,11 @@ const OperationsModalContent = ({ modalMode }: Props) => {
       onSetPlayerByDeviceId(device_id);
 
       onSetModalMode(null);
+      showSuccess('Success!');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to fetch devices');
       console.error('Error updating balances:', err);
+      showError('Error!');
     } finally {
       setPending(false);
     }

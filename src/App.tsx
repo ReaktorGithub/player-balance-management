@@ -13,6 +13,7 @@ import {
 } from './store';
 import { DevicesTable } from './DevicesTable';
 import { OperationsModal } from './OperationsModal';
+import { CustomToast } from './shared/hooks';
 
 const App = () => {
   const loading = useUnit($devicesLoading);
@@ -62,6 +63,7 @@ const App = () => {
         )}
       </Stack>
       <OperationsModal />
+      <CustomToast />
     </div>
   );
 };
