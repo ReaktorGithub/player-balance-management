@@ -1,6 +1,10 @@
 .table {
   table-layout: auto;
   width: 100%;
+
+  tr {
+    user-select: none;
+  }
 }
 
 .table td:nth-child(1) {
@@ -16,4 +20,12 @@
 
 .clickableRow {
   cursor: pointer;
+}
+
+.selected {
+  background-color: #ecffdf !important;
+
+  td {
+    background-color: transparent !important;
+  }
 }

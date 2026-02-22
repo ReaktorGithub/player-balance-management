@@ -1,7 +1,8 @@
 import { useUnit } from 'effector-react/compat';
-import { setPlayerByDeviceId } from '../store';
+import { $selectedDevice, setPlayerByDeviceId, setSelectedDevice } from '../store';
 import styles from './devices-table.module.css';
 import { formatMonthYear } from '../shared';
+import clsx from 'clsx';
 
 interface DeviceData {
   id: number;
@@ -17,14 +18,24 @@ interface Props<V extends DeviceData> {
 const DeviceRow = <V extends DeviceData>({
   data: { id, created_at, updated_at, name },
 }: Props<V>) => {
-  const onSetPlayerByDeviceId = useUnit(setPlayerByDeviceId);
+  const [selectedDevice, onSetSelectedDevice, onSetPlayerByDeviceId] = useUnit([
+    $selectedDevice,
+    setSelectedDevice,
+    setPlayerByDeviceId,
+  ]);
 
   const handleClick = () => {
     onSetPlayerByDeviceId(id);
+    onSetSelectedDevice(id);
   };
 
+  const selected = selectedDevice === id;
+
   return (
-    <tr onClick={handleClick} className={styles.clickableRow}>
+    <tr
+      onClick={handleClick}
+      className={clsx({ [styles.clickableRow]: !selected, [styles.selected]: selected })}
+    >
       <td>{name}</td>
       <td>{formatMonthYear(created_at)}</td>
       <td>{formatMonthYear(updated_at)}</td>
