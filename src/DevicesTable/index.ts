@@ -1,1 +1,1 @@
-export * from './devices-table.tsx';
+export * from './devices-table';

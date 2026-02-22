@@ -1,6 +1,6 @@
 import { createStore, createEvent, sample } from 'effector';
 import type { DevicePlace } from '../api';
-import { $devices } from './devices.ts';
+import { $devices } from './devices';
 
 // Store для списка игроков
 export const $players = createStore<DevicePlace[]>([]);

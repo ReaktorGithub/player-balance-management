@@ -1,1 +1,1 @@
-export * from './use-app-snackbar.tsx';
+export * from './use-app-snackbar';

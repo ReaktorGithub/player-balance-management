@@ -1,6 +1,6 @@
 import { useUnit } from 'effector-react';
 import { $modalMode } from '../store';
-import { OperationsModalContent } from './operations-modal-content.tsx';
+import { OperationsModalContent } from './operations-modal-content';
 
 const OperationsModal = () => {
   const modalMode = useUnit($modalMode);

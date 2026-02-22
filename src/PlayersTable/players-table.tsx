@@ -1,6 +1,6 @@
 import { Table } from 'react-bootstrap';
 import styles from './players-table.module.css';
-import { PlayerRow } from './player-row.tsx';
+import { PlayerRow } from './player-row';
 import { useUnit } from 'effector-react';
 import { $players } from '../store';
 

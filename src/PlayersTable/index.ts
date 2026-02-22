@@ -1,1 +1,1 @@
-export * from './players-table.tsx';
+export * from './players-table';

@@ -1,1 +1,1 @@
-export * from './operations-modal.tsx';
+export * from './operations-modal';

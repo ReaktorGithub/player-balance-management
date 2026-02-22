@@ -1,4 +1,4 @@
-export * from './types.ts';
-export * from './constants.ts';
-export * from './helpers.ts';
+export * from './types';
+export * from './constants';
+export * from './helpers';
 export * from './hooks';

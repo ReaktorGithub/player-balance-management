@@ -1,4 +1,4 @@
-import { KES_RATE } from './constants.ts';
+import { KES_RATE } from './constants';
 
 const months = [
   'January',

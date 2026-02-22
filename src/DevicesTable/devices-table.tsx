@@ -1,6 +1,6 @@
 import { Table } from 'react-bootstrap';
 import styles from './devices-table.module.css';
-import { DeviceRow } from './device-row.tsx';
+import { DeviceRow } from './device-row';
 import { useUnit } from 'effector-react';
 import { $devices } from '../store';
 
